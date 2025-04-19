@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strings"
 	"sync"
@@ -55,6 +56,7 @@ func CheckURLs(w http.ResponseWriter, r *http.Request) {
 
 	var res []model.URLResult
 	for r := range results {
+		fmt.Printf("Result: %+v\n", r) // <- Moved here
 		res = append(res, r)
 	}
 

@@ -5,9 +5,9 @@ type URLRequest struct {
 }
 
 type URLResult struct {
-	URL         string `json:"url"`
-	StatusCode  int    `json:"status_code"`
-	StatusText  string `json:"status_text"`
-	ResponseMS  int64  `json:"response_ms"`
-	Error       string `json:"error,omitempty"`
+	URL        string `json:"url"`
+	StatusCode int    `json:"statusCode"`
+	StatusText string `json:"statusText"`
+	ResponseMS int64  `json:"responseMS"`
+	Error      string `json:"error,omitempty"`
 }
