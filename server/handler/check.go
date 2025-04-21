@@ -30,7 +30,14 @@ func CheckURLs(w http.ResponseWriter, r *http.Request) {
 				Timeout: 5 * time.Second,
 			}
 
-			resp, err := client.Get(url)
+			req, err := http.NewRequest("GET", url, nil)
+			if err != nil {
+				results <- model.URLResult{URL: url, Error: err.Error()}
+				return
+			}
+			// req.Header.Set("User-Agent", "Mozilla/5.0 (compatible; PingVerge/1.0)")
+
+			resp, err := client.Do(req)
 			if err != nil {
 				results <- model.URLResult{
 					URL:   url,
